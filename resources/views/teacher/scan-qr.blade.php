@@ -14,8 +14,8 @@
         <script>
             const TEACHER_ID = {{ auth()->user()->userTeacher->id }}
         </script>
-        {{-- <script src="/js/html5-qrcode.min.js"></script> --}}
-        <script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script>
+        <script src="/js/html5-qrcodes.min.js"></script>
+        {{-- <script src="https://raw.githubusercontent.com/mebjas/html5-qrcode/master/minified/html5-qrcode.min.js"></script> --}}
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.0/socket.io.min.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
         <script src="/js/app/teacher-scan.js"></script>
