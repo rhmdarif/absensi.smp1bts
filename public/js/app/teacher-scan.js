@@ -56,8 +56,7 @@ function onScanError(errorMessage) {
     // handle on error condition, with error message
 }
 
-var html5QrcodeScanner = new Html5QrcodeScanner(
-    "reader", { fps: 10, qrbox: 250 });
+var html5QrcodeScanner = new Html5QrcodeScanner( "qr-reader", { fps: 10, qrbox: 250 });
 
 
 
