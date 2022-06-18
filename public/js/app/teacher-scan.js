@@ -62,7 +62,7 @@ var html5QrcodeScanner = new Html5QrcodeScanner( "qr-reader", { fps: 10, qrbox: 
 
 const html5QrCode = new Html5Qrcode("qr-reader");
 const qrCodeSuccessCallback = (message) => {
-    console.log(absen_id)
+    console.log(absen_id, message)
     DIALOG_SUCCESS.modal('hide');
     DIALOG_DANGER.modal('hide');
     DIALOG_INFO.modal('hide');
@@ -99,8 +99,8 @@ const config = { fps: 10, qrbox: 150, aspectRatio: .95 };
 $(document).ready(() => {
     //triggered when modal is about to be shown
     $("#actionSheetContent").on("show.bs.modal", function (e) {
-        html5QrcodeScanner.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
-        // html5QrcodeScanner.render(onScanSuccess, onScanError);
+        // html5QrcodeScanner.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        html5QrcodeScanner.render(qrCodeSuccessCallback, onScanError);
     });
     $("#actionSheetContent").on("hide.bs.modal", function (e) {
         html5QrcodeScanner.stop().then((ignore) => {
