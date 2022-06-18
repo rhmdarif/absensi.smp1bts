@@ -6,7 +6,7 @@
         <div class="row">
             <div class="col-12">
                 <div class="text-center">
-                    <h4>Scan Kode QR</h4>
+                    <h4>Scan Kode QRs</h4>
                 </div>
             </div>
         </div>
