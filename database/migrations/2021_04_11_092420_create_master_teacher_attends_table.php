@@ -16,7 +16,6 @@ class CreateMasterTeacherAttendsTable extends Migration
         Schema::create('master_teacher_attends', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('type_id');
             $table->time('waktu_mulai');
             $table->time('waktu_selesai');
             $table->integer('total_hadir')->default(0);

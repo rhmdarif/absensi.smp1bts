@@ -47,6 +47,20 @@ socket.on("guruHasFail", (val) => {
     }
 })
 
+function onScanSuccess(decodedText, decodedResult) {
+    // Handle on success condition with the decoded text or result.
+    console.log(`Scan result: ${decodedText}`, decodedResult);
+}
+
+function onScanError(errorMessage) {
+    // handle on error condition, with error message
+}
+
+var html5QrcodeScanner = new Html5QrcodeScanner(
+    "reader", { fps: 10, qrbox: 250 });
+
+
+
 const html5QrCode = new Html5Qrcode("qr-reader");
 const qrCodeSuccessCallback = (message) => {
     console.log(absen_id)
@@ -78,19 +92,22 @@ const qrCodeSuccessCallback = (message) => {
     }
 
 }
+
+
 const config = { fps: 10, qrbox: 150, aspectRatio: .95 };
 
 // If you want to prefer back camera
 $(document).ready(() => {
     //triggered when modal is about to be shown
     $("#actionSheetContent").on("show.bs.modal", function (e) {
-        html5QrCode.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        html5QrcodeScanner.start({ facingMode: "environment" }, config, qrCodeSuccessCallback);
+        // html5QrcodeScanner.render(onScanSuccess, onScanError);
     });
     $("#actionSheetContent").on("hide.bs.modal", function (e) {
-        html5QrCode.stop().then((ignore) => {
-        // QR Code scanning is stopped.
+        html5QrcodeScanner.stop().then((ignore) => {
+            // QR Code scanning is stopped.
         }).catch((err) => {
-        // Stop failed, handle it.
+            // Stop failed, handle it.
             location.reload();
         });
     });
