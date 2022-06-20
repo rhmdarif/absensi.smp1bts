@@ -37,9 +37,10 @@ class LoginController extends Controller
             return ['status' => false, 'msg' => "Password anda salah"];
         }
 
-        //if(UserTeacher::where('user_id', $user->id)->count() == 0) {
-        //    return ['status' => false, 'msg' => "Anda tidak diizinkan masuk"];
-        //-}
+        dd(UserTeacher::where('user_id', $user->id)->count() == 0);
+        if(UserTeacher::where('user_id', $user->id)->count() == 0) {
+            return ['status' => false, 'msg' => "Anda tidak diizinkan masuk"];
+        }
 
         Auth::loginUsingId($user->id);
         return ['status' => true, 'msg' => "Login berhasil, anda akan segera di alihkan."];
